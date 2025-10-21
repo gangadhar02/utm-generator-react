@@ -2,6 +2,10 @@
 
 A modern, clean UTM parameter generator built with React, TypeScript, Vite, and shadcn/ui components.
 
+## Live Demo
+
+🚀 **[Try it live on GitHub Pages](https://gangadhar02.github.io/utm-generator-react/)**
+
 ## Features
 
 - **Modern UI**: Built with shadcn/ui components for a polished, professional look

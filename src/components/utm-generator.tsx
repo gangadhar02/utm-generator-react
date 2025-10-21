@@ -65,30 +65,30 @@ export function UtmGenerator() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 p-4 sm:p-6 lg:p-8">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 p-3 sm:p-6 lg:p-8">
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-8">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <Link2 className="h-10 w-10 text-primary" />
-            <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
+        <div className="text-center mb-6 sm:mb-8">
+          <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
+            <Link2 className="h-7 w-7 sm:h-10 sm:w-10 text-primary flex-shrink-0" />
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white">
               UTM Generator
             </h1>
           </div>
-          <p className="text-gray-600 dark:text-gray-300">
+          <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 px-2">
             Create trackable URLs with UTM parameters for your marketing campaigns
           </p>
         </div>
 
-        <Card className="mb-6">
-          <CardHeader>
-            <CardTitle>Campaign URL Builder</CardTitle>
-            <CardDescription>
+        <Card className="mb-4 sm:mb-6">
+          <CardHeader className="p-4 sm:p-6">
+            <CardTitle className="text-xl sm:text-2xl">Campaign URL Builder</CardTitle>
+            <CardDescription className="text-sm">
               Fill in the fields below to generate your custom UTM tracking URL
             </CardDescription>
           </CardHeader>
-          <CardContent className="space-y-4">
+          <CardContent className="space-y-4 p-4 sm:p-6 pt-0">
             <div className="space-y-2">
-              <Label htmlFor="baseUrl">
+              <Label htmlFor="baseUrl" className="text-sm sm:text-base">
                 Website URL <span className="text-destructive">*</span>
               </Label>
               <Input
@@ -97,6 +97,7 @@ export function UtmGenerator() {
                 placeholder="https://www.example.com"
                 value={baseUrl}
                 onChange={(e) => setBaseUrl(e.target.value)}
+                className="text-sm sm:text-base"
               />
               <p className="text-xs text-muted-foreground">
                 The full website URL (e.g., https://www.example.com)
@@ -105,12 +106,13 @@ export function UtmGenerator() {
 
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="space-y-2">
-                <Label htmlFor="source">Campaign Source</Label>
+                <Label htmlFor="source" className="text-sm sm:text-base">Campaign Source</Label>
                 <Input
                   id="source"
-                  placeholder="google, newsletter, facebook"
+                  placeholder="e.g., google, newsletter"
                   value={source}
                   onChange={(e) => setSource(e.target.value)}
+                  className="text-sm sm:text-base"
                 />
                 <p className="text-xs text-muted-foreground">
                   The referrer (e.g., google, newsletter)
@@ -118,12 +120,13 @@ export function UtmGenerator() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="medium">Campaign Medium</Label>
+                <Label htmlFor="medium" className="text-sm sm:text-base">Campaign Medium</Label>
                 <Input
                   id="medium"
-                  placeholder="cpc, email, social"
+                  placeholder="e.g., cpc, email, social"
                   value={medium}
                   onChange={(e) => setMedium(e.target.value)}
+                  className="text-sm sm:text-base"
                 />
                 <p className="text-xs text-muted-foreground">
                   Marketing medium (e.g., cpc, email)
@@ -132,12 +135,13 @@ export function UtmGenerator() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="campaign">Campaign Name</Label>
+              <Label htmlFor="campaign" className="text-sm sm:text-base">Campaign Name</Label>
               <Input
                 id="campaign"
-                placeholder="spring_sale, product_launch"
+                placeholder="e.g., spring_sale"
                 value={campaign}
                 onChange={(e) => setCampaign(e.target.value)}
+                className="text-sm sm:text-base"
               />
               <p className="text-xs text-muted-foreground">
                 Product, promo code, or slogan
@@ -146,12 +150,13 @@ export function UtmGenerator() {
 
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="space-y-2">
-                <Label htmlFor="term">Campaign Term (optional)</Label>
+                <Label htmlFor="term" className="text-sm sm:text-base">Campaign Term (optional)</Label>
                 <Input
                   id="term"
-                  placeholder="running+shoes"
+                  placeholder="e.g., running+shoes"
                   value={term}
                   onChange={(e) => setTerm(e.target.value)}
+                  className="text-sm sm:text-base"
                 />
                 <p className="text-xs text-muted-foreground">
                   Identify paid keywords
@@ -159,12 +164,13 @@ export function UtmGenerator() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="content">Campaign Content (optional)</Label>
+                <Label htmlFor="content" className="text-sm sm:text-base">Campaign Content (optional)</Label>
                 <Input
                   id="content"
-                  placeholder="banner_ad, text_link"
+                  placeholder="e.g., banner_ad"
                   value={content}
                   onChange={(e) => setContent(e.target.value)}
+                  className="text-sm sm:text-base"
                 />
                 <p className="text-xs text-muted-foreground">
                   Differentiate similar content
@@ -172,11 +178,11 @@ export function UtmGenerator() {
               </div>
             </div>
 
-            <div className="flex gap-2 pt-4">
-              <Button onClick={generateUrl} className="flex-1">
+            <div className="flex flex-col sm:flex-row gap-2 pt-4">
+              <Button onClick={generateUrl} className="flex-1 h-11 sm:h-10 text-base sm:text-sm">
                 Generate URL
               </Button>
-              <Button onClick={resetForm} variant="outline">
+              <Button onClick={resetForm} variant="outline" className="h-11 sm:h-10 text-base sm:text-sm sm:w-auto">
                 Reset
               </Button>
             </div>
@@ -185,24 +191,24 @@ export function UtmGenerator() {
 
         {generatedUrl && (
           <Card>
-            <CardHeader>
-              <CardTitle>Generated URL</CardTitle>
-              <CardDescription>
+            <CardHeader className="p-4 sm:p-6">
+              <CardTitle className="text-xl sm:text-2xl">Generated URL</CardTitle>
+              <CardDescription className="text-sm">
                 Your campaign URL with UTM parameters
               </CardDescription>
             </CardHeader>
-            <CardContent className="space-y-4">
+            <CardContent className="space-y-4 p-4 sm:p-6 pt-0">
               <div className="space-y-2">
                 <Textarea
                   value={generatedUrl}
                   readOnly
-                  className="font-mono text-sm min-h-[100px]"
+                  className="font-mono text-xs sm:text-sm min-h-[100px] sm:min-h-[120px]"
                 />
               </div>
               <Button
                 onClick={copyToClipboard}
                 variant="secondary"
-                className="w-full"
+                className="w-full h-11 sm:h-10 text-base sm:text-sm"
               >
                 {copied ? (
                   <>
